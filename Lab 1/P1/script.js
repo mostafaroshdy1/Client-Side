@@ -12,12 +12,6 @@ const duration = document.querySelector(".duration");
 const speedLevelBar = document.querySelector(".speedLevelBar");
 
 let soundLevel;
-const videoList = [
-    "./src/Crazy Frog - Axel F (Official Video).mp4",
-    "./src/JavaScript in 100 Seconds.mp4",
-    "./src/THIS IS 4K ANIME (Tanjiro vs Hantengu) Demon Slayer Episode 11.mp4"
-];
-console.log(video);
 
 video.addEventListener('timeupdate', () => {
     videoDurationBar.value = scaleValue(video.currentTime, 0, video.duration, 0, 10000);
@@ -29,11 +23,12 @@ video.addEventListener("loadeddata", () => {
     videoDurationBar.value = scaleValue(video.currentTime, 0, video.duration, 0, 10000);
     currentTime = video.currentTime.toFixed();
     duration.innerText = `${(currentTime / 60).toFixed()} : ${(currentTime % 60).toFixed()}/ ${(video.duration / 60).toFixed()} : ${(video.duration % 60).toFixed()}`
+    speedLevelBar.value = scaleValue(video.playbackRate, 0, 10, 0, 100);
+
 })
 
 videoDurationBar.addEventListener('input', (e) => {
     video.currentTime = scaleValue(videoDurationBar.value, 0, 10000, 0, video.duration);
-    console.log(scaleValue(videoDurationBar.value, 0, 10000, video.currentTime, video.duration))
 })
 playBtn.addEventListener('click', () => {
     video.play();
@@ -58,22 +53,17 @@ fastBtn.addEventListener('click', () => {
 
 })
 previousBtn.addEventListener('click', () => {
-    const currentVideo = new URL(video.src);
-    if (videoList.indexOf('.' + decodeURIComponent(currentVideo.pathname).slice(9)) <= 0) {
-        return;
+    if (video.playbackRate < 10) {
+        video.playbackRate -= 0.15;
     }
-    video.src = videoList[videoList.indexOf('.' + decodeURIComponent(currentVideo.pathname).slice(9)) - 1];
-    console.log(decodeURIComponent(currentVideo.pathname).slice(9));
-
+    speedLevelBar.value = scaleValue(video.playbackRate, 0, 10, 0, 100);
 
 })
 nextBtn.addEventListener('click', () => {
-    const currentVideo = new URL(video.src);
-    if (videoList.indexOf('.' + decodeURIComponent(currentVideo.pathname).slice(9)) >= videoList.length - 1) {
-        return;
+    if (video.playbackRate < 10) {
+        video.playbackRate += 0.15;
     }
-    console.log(decodeURIComponent(currentVideo.pathname).slice(9))
-    video.src = videoList[videoList.indexOf('.' + decodeURIComponent(currentVideo.pathname).slice(9)) + 1];
+    speedLevelBar.value = scaleValue(video.playbackRate, 0, 10, 0, 100);
 })
 
 muteBtn.addEventListener('click', () => {
