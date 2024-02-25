@@ -63,6 +63,7 @@ previousBtn.addEventListener('click', () => {
         return;
     }
     video.src = videoList[videoList.indexOf('.' + decodeURIComponent(currentVideo.pathname).slice(9)) - 1];
+    console.log(decodeURIComponent(currentVideo.pathname).slice(9));
 
 
 })
@@ -71,6 +72,7 @@ nextBtn.addEventListener('click', () => {
     if (videoList.indexOf('.' + decodeURIComponent(currentVideo.pathname).slice(9)) >= videoList.length - 1) {
         return;
     }
+    console.log(decodeURIComponent(currentVideo.pathname).slice(9))
     video.src = videoList[videoList.indexOf('.' + decodeURIComponent(currentVideo.pathname).slice(9)) + 1];
 })
 
