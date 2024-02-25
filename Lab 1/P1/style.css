@@ -1,0 +1,22 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+video {
+    width: 1280px;
+    height: 720px;
+}
+
+.videoDurationBar {
+    width: 1200px;
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+}

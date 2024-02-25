@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="mainContainer">
+        <div class="videoContainer">
+            <video src="./src/JavaScript in 100 Seconds.mp4" controls></video>
+        </div>
+        <div class="controlsContainer">
+            <input type="range" class="videoDurationBar" min="0" max="10000" value="40">
+            <span class="duration"></span>
+
+            <div>
+                <input class="playBtn" type="button" name="" id="" value="Play">
+                <input class="stopBtn" type="button" name="" id="" value="Stop">
+                <input class="slowBtn" type="button" name="" id="" value="<<">
+                <input class="previousBtn" type="button" name="" id="" value="<">
+                <input class="nextBtn" type="button" name="" id="" value=">">
+                <input class="fastBtn" type="button" name="" id="" value=">>">
+                <input class="soundLevelBar" type="range" min="0" max="10000">
+                <input class="muteBtn" type="button" name="" id="" value="Mute">
+            </div>
+        </div>
+        <div>
+            <span>Speed</span> <input class="speedLevelBar" type="range" min="0" max="100">
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
