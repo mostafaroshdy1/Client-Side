@@ -1,0 +1,51 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.emailContainer {
+    border: 5px solid black;
+    width: 50vw;
+    padding-left: 20px;
+
+}
+
+.emailContainer .inputs {
+    display: flex;
+    flex-direction: column;
+    width: 15vw;
+}
+
+.emailContainer input {
+    margin-bottom: 6px;
+    border: 2px solid black;
+}
+
+[type="submit"] {
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+[name="email"]:invalid,
+[name="username"]:invalid {
+    border-color: red;
+}
+
+[name="username"]:invalid+p::after {
+    content: "The required user name may only be a series of alphabetical characters.";
+
+}
+
+[name="email"]:invalid+p::after {
+    content: "The required email address may not include any special characters other than the '@' sign.";
+
+}
+
+p {
+    margin: 2px;
+    margin-bottom: 5px;
+    width: 50vw;
+}

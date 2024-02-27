@@ -1,0 +1,36 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    background-color: rgb(246, 221, 238);
+    width: 500px;
+    height: 60px;
+    font-size: 25px;
+    border-radius: 25px;
+    border: 5px solid rgb(133, 120, 246);
+}
+
+button:hover {
+    animation: buttonHovered 1s ease-in-out infinite;
+}
+
+@keyframes buttonHovered {
+    0% {
+        box-shadow: 0 0 0 red;
+        background-color: rgb(246, 221, 238);
+    }
+
+    50% {
+        box-shadow: 20px 20px 20px red;
+        background-color: yellow;
+    }
+
+    100% {
+        box-shadow: 0 0 0 red;
+        background-color: rgb(246, 221, 238);
+    }
+}
